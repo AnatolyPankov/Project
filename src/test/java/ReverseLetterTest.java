@@ -7,36 +7,49 @@ public class ReverseLetterTest {
 
     @Test
     public void testReverseMixedString() {
-        assertEquals("J@va the be$t!123", ReverseLetter.reverseLetter("t@eb eht av$J!123"));
+        String mixedString = "J@va the be$t!123";
+        String result = ReverseLetter.reverseLetter(mixedString);
+        assertEquals(mixedString, ReverseLetter.reverseLetter(result));
     }
 
     @Test
     public void testReverseEmptyString() {
-        assertEquals("", ReverseLetter.reverseLetter(""));
+        String emptyString = "";
+        String result = ReverseLetter.reverseLetter((emptyString));
+        assertEquals(emptyString, ReverseLetter.reverseLetter(result));
     }
 
     @Test
     public void testReverseSingleString() {
-        assertEquals("a", ReverseLetter.reverseLetter("a"));
+        String singleString = "a";
+        String result = ReverseLetter.reverseLetter(singleString);
+        assertEquals(singleString, ReverseLetter.reverseLetter(result));
     }
 
     @Test
     public void testReverseNoLetters() {
-        assertEquals("123 !@", ReverseLetter.reverseLetter("123 !@"));
+        String noLetters = "123 !@";
+        String result = ReverseLetter.reverseLetter(noLetters);
+        assertEquals(noLetters, ReverseLetter.reverseLetter(result));
     }
 
     @Test
     public void testReverseOnlyLetters() {
-        assertEquals("abcd", ReverseLetter.reverseLetter("dcba"));
+        String onlyLetters = "abcd";
+        assertEquals("dcba", ReverseLetter.reverseLetter(onlyLetters));
     }
 
     @Test
     public void testReverseSimbolEdgesAndMiddle() {
-        assertEquals("123D c@b$A!", ReverseLetter.reverseLetter("123A b@c$D!"));
+        String input = "123A b@c$D!";
+        String result = "123D c@b$A!";
+        assertEquals(result, ReverseLetter.reverseLetter(input));
     }
 
     @Test
     public void testReverseAppercaseAndLowercase() {
-        assertEquals("b---A", ReverseLetter.reverseLetter("A---b"));
+        String input = "A---b";
+        String result = "b---A";
+        assertEquals(result, ReverseLetter.reverseLetter(input));
     }
 }

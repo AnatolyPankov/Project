@@ -1,6 +1,6 @@
 public class ReverseLetter {
 
-    public static String reverseLetter(String str) {
+    public String reverseLetter(String str) {
         char[] chars = str.toCharArray();
         int left = 0;
         int right = chars.length - 1;
