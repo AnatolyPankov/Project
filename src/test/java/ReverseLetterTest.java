@@ -6,72 +6,52 @@ public class ReverseLetterTest {
     private final ReverseLetter reverse = new ReverseLetter();
 
     @Test
-    public void testReverseMixedString() {
-        String input = "J@va the be$t!123";
+    public void reverse_shouldReverseString() {
+        String result = reverse.reverseLetter("J@va the be$t!123");
 
-        String firstReverse = reverse.reverseLetter(input);
-        String secondReverse = reverse.reverseLetter(firstReverse);
+        assertEquals("t@eb eht av$J!123", result);
 
-        assertEquals(input, secondReverse);
     }
 
     @Test
-    public void testReverseEmptyString() {
-        String input = "";
+    public void reverse_returnsEmptyForEmptyInput() {
+        String result = reverse.reverseLetter("");
 
-
-        String firstReverse = reverse.reverseLetter(input);
-        String secondReverse = reverse.reverseLetter(firstReverse);
-
-        assertEquals(input, secondReverse);
+        assertEquals("", result);
     }
 
     @Test
-    public void testReverseSingleString() {
-        String input = "a";
+    public void reverse_preservesOneLetter() {
+        String result = reverse.reverseLetter("a");
 
-        String firstReverse = reverse.reverseLetter(input);
-        String secondReverse = reverse.reverseLetter(firstReverse);
-
-        assertEquals(input, secondReverse);
+        assertEquals("a", result);
     }
 
     @Test
-    public void testReverseNoLetters() {
-        String input = "123 !@";
+    public void reverse_keepsNonLettersInPlace() {
+        String result = reverse.reverseLetter("123 !@#");
 
-        String firstReverse = reverse.reverseLetter(input);
-        String secondReverse = reverse.reverseLetter(firstReverse);
-
-        assertEquals(input, secondReverse);
+        assertEquals("123 !@#", result);
     }
 
     @Test
-    public void testReverseOnlyLetters() {
-        String input = "abcd";
-        String expectedResult = "dcba";
+    public void reverse_rotatesTheLetters() {
+        String result = reverse.reverseLetter("abcd");
 
-        String actualResult = reverse.reverseLetter(input);
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals("dcba", result);
     }
 
     @Test
-    public void testReverseSimbolEdgesAndMiddle() {
-        String input = "123A b@c$D!";
-        String expectedResult = "123D c@b$A!";
+    public void reverse_reverseSimbolEdgesAndMiddle() {
+        String result = reverse.reverseLetter("123A b@c$D!");
 
-        String actualResult = reverse.reverseLetter(input);
-
-        assertEquals(expectedResult, actualResult);
+        assertEquals("123D c@b$A!", result);
     }
 
     @Test
-    public void testReverseAppercaseAndLowercase() {
-        String input = "A---b";
-        String expectedResult = "b---A";
+    public void reverse_appercaseAndLowercase() {
+        String result = reverse.reverseLetter("A---b");
 
-        String actualReverse = reverse.reverseLetter(input);
-        assertEquals(expectedResult, actualReverse);
+        assertEquals("b---A", result);
     }
 }
